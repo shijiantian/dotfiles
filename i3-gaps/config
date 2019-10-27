@@ -173,7 +173,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "exit" {
-	bindsym Return exec exitI3wm 
+	bindsym Return exec i3-msg exit
 	bindsym Escape mode "default"
 }
 
@@ -201,7 +201,7 @@ bar {
 #autostart after boot
 exec --no-startup-id fcitx
 exec --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill ~/config/i3/wallpaper.jpeg
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.jpeg
 exec --no-startup-id compton --config ~/.config/compton/config
 
 default_border pixel 0

@@ -7,7 +7,7 @@ sudo pacman -S community/compton
 mkdir ~/.config/compton
 wget -O ~/.config/compton/config "https://raw.githubusercontent.com/shijiantian/dotfiles/master/compton/config"
 ##配置urxvt
-sudo pacman -S community/rxvt-unicode
+sudo pacman -S community/rxvt-unicode community/wqy-zenhei
 wget -O ~/.Xresources "https://raw.githubusercontent.com/shijiantian/dotfiles/master/rxvt-unicode/Xresources"
 xrdb -load ~/.Xresources
 ##配置i3-gaps
@@ -23,3 +23,28 @@ sudo pacman -S community/rofi
 mkdir ~/.config/rofi/themes
 wget -O ~/.config/rofi/config "https://raw.githubusercontent.com/shijiantian/dotfiles/master/rofi/config"
 wget -O ~/.config/rofi/themes/onedark.rasi "https://raw.githubusercontent.com/shijiantian/dotfiles/master/rofi/themes/onedark.rasi"
+i3-msg reload
+
+##设置时区
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo hwclock --systohc
+##设置locale
+sudo sed -i "s/^#en_US.UTF-8/en_US.UTF-8/g" /etc/locale.gen
+sudo sed -i "s/^#zh_CN.UTF-8/zh_CN.UTF-8/g" /etc/locale.gen
+sudo sed -i "s/^#zh_HK.UTF-8/zh_HK.UTF-8/g" /etc/locale.gen
+sudo sed -i "s/^#zh_TW.UTF-8/zh_TW.UTF-8/g" /etc/locale.gen
+sudo locale-gen
+sudo echo "LANG=en_US.UTF-8" > /etc/locale.conf
+##设置主机名
+sudo echo "myArch" > /etc/hostname
+##设置hosts
+sudo echo "127.0.0.1    localhost" > /etc/hosts
+sudo echo "::1          localhost" >> /etc/hosts
+sudo echo "127.0.0.1    myArch.localdomain myArch" >>/etc/hosts
+
+##安装trash命令
+sudo pacman -S community/trash-cli
+
+wget -O ~/.bashrc "https://raw.githubusercontent.com/shijiantian/dotfiles/master/bashrc"
+source ~/.bashrc
+wget -O ~/.vimrc "https://raw.githubusercontent.com/shijiantian/dotfiles/master/vimrc"
