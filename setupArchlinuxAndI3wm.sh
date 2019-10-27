@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo pacman -Syu
+##安装输入法
+sudo pacman -S community/fcitx-im community/fcitx-googlepinyin community/fcitx-configtool
 ##配置compton
 sudo pacman -S community/compton
 mkdir ~/.config/compton
