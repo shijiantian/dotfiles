@@ -30,27 +30,15 @@ font pango:monospace 8
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt -sh 40
-bindsym $mod+g exec chromium --proxy-pac-url=http://127.0.0.1:2333/proxy.pac
 
 # kill focused window
 bindsym $mod+F4 kill
@@ -212,11 +200,9 @@ bar {
 
 #autostart after boot
 exec --no-startup-id fcitx
-exec --no-startup-id /opt/electron-ssr.appimage
 exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-fill ~/config/i3/wallpaper.jpeg
 exec --no-startup-id compton --config ~/.config/compton/config
-#exec --no-startup-id chinese-calendar
 
 default_border pixel 0
 new_window pixel 0
@@ -230,32 +216,23 @@ gaps outer 0
 #smart_gaps on
 
 #bind workspace for app
-#assign [class="Gnome-terminal"] $ws1
 assign [class="Firefox"] $ws2
-assign [class="Google-chrome"] $ws2
 assign [class="Chromium-browser"] $ws2
 assign [class="jetbrains-idea-ce"] $ws3
 assign [class="Code"] $ws4
 assign [class="Postman"] $ws5
 assign [class="netease-cloud-music"] $ws6
-assign [class="Deluge"] $ws6
-assign [class="calibre"] $ws6
-assign [class="Steam"] $ws6
 assign [class="Thunderbird"] $ws7
 assign [class="Bcompare"] $ws8
 assign [class="GoldenDict"] $ws8
-assign [class="Nautilus"] $ws9
 assign [class="VirtualBox Manager"] $ws9
 assign [class="VirtualBox Machine"] $ws9
 
 #floating window
 for_window [class="netease-cloud-music"] floating enable
-for_window [class="WeChat"] floating enable
-for_window [class="WeChat"] resize set 640 480
-for_window [class="chinese-calendar"] floating enable
-for_window [class="Wine"] floating enable
 
 #my hotkeys
 bindsym $mod+Shift+v exec vlc
 bindsym $mod+t exec goldendict
 bindsym $mod+f exec firefox
+bindsym $mod+g exec chromium --proxy-pac-url=http://127.0.0.1:2333/proxy.pac
