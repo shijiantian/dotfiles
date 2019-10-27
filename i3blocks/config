@@ -1,0 +1,28 @@
+# Global properties
+#
+separator_block_width=30
+separator=false
+
+#motto
+[motto]
+command=sh ~/.config/i3blocks/motto.sh
+interval=720
+color=#ffF00
+
+# Guess the weather hourly
+[weather]
+command=curl -Ss --connect-timeout 5 --retry 3 'https://wttr.in/ShenZhen?0&T&Q&m' | cut -c 16- | head -2 | xargs echo
+interval=7200
+color=#ffFF7f
+
+#exchange rate of today
+[exchange rate]
+command=curl -Ss --retry 3 "http://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json?t=1570499934070" |jq ".records[0].price,.records[0].bpDouble" |sed -e '1s/^/USD:CNY\ 1:/g;2s/^/BP:/g' |xargs echo
+interval=once
+color=#00FF00
+
+# Date Time
+[time]
+command=date "+%A %T %B %e"
+interval=10
+color=#f8f8ff
