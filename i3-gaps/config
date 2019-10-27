@@ -196,7 +196,7 @@ bindsym $mod+Shift+e mode "exit"
 bar {
 	position top
 	height 20
-        status_command i3blocks -c /home/arch/.config/i3blocks/config
+        status_command i3blocks -c ~/.config/i3blocks/config
 #	i3bar_command i3bar -t
 	font pango:Monaco for Powerline 10;wqy-zenhei 10
 	colors {
@@ -214,8 +214,8 @@ bar {
 exec --no-startup-id fcitx
 exec --no-startup-id /opt/electron-ssr.appimage
 exec --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill /home/arch/Pictures/Wallpapers/chahua2.jpeg
-exec --no-startup-id compton --config /home/arch/.config/compton/config
+exec_always --no-startup-id feh --bg-fill ~/config/i3/wallpaper.jpeg
+exec --no-startup-id compton --config ~/.config/compton/config
 #exec --no-startup-id chinese-calendar
 
 default_border pixel 0
