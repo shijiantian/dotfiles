@@ -202,7 +202,7 @@ bar {
 exec --no-startup-id fcitx
 exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.jpeg
-exec --no-startup-id compton --config ~/.config/compton/config
+#exec --no-startup-id compton --config ~/.config/compton/config
 
 default_border pixel 0
 new_window pixel 0

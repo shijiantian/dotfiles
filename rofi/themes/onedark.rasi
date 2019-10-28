@@ -28,15 +28,20 @@ configuration {
 
   spacing: 0;
   background-color: transparent;
+  bgcolor: #0000099f;
 
   font: "Knack Nerd Font 14";
   text-color: @text;
 }
 
 window {
-  transparency: "real";
+/**
+*  real transparency need compton
+*  transparency: "real";
+**/
+  transparency: "screenshot";
   fullscreen: true;
-  background-color: #0000099F;
+  background-color: @bgcolor;
 }
 
 mainbox {
