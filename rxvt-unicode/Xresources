@@ -10,7 +10,7 @@ URxvt.background:[50]black
 URxvt.foreground:#ffFF7F
 URxvt.colorBD:Gray95
 URxvt.colorUL:Green
-URxvt.color1:Red2
+URxvt.color1:yellow
 URxvt.color4:RoyalBlue
 URxvt.color5:DodgerBlue
 URxvt.color8:Gray50
@@ -45,3 +45,9 @@ URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=18,xft:WenQuanYi Zen
 !!高亮/选中颜色设置
 URxvt.highlightColor:black
 URxvt.highlightTextColor:White
+!!clipboard
+URxvt.perl-ext-common:  ...,clipboard,...
+URxvt.clipboard.autocopy: true
+!!ctrl+alt+c copy   ctrl+alt+v paste
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
