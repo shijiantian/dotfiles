@@ -30,6 +30,7 @@ if [ ! "$mirrors" ];then
 	echo "no mirrors,exit. "
 	exit
 else
+	mirrors=$(echo $mirrors |sed 's/\//\\\//g')
 	sed -i "1 s/^/$mirrors\n/" /etc/pacman.d/mirrorlist
 fi
 
