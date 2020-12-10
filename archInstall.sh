@@ -30,7 +30,7 @@ if [ ! "$mirrors" ];then
 	echo "no mirrors,exit. "
 	exit
 else
-	echo $mirrors >> /etc/pacman.d/mirrorlist
+	sed -i "1 s/^/$mirrors\n/" /etc/pacman.d/mirrorlist
 fi
 
 #安装基本包
